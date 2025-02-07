@@ -1,3 +1,48 @@
-#root{
-    color:rgb(244, 116, 116);
+.res-logo {
+    width: 200px;
+    height: 100px;
+}
+
+.res-card {
+    width: 200px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.res-card:hover {
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.res-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    margin: 10px;
+}
+
+.nav-items>ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-items>ul>li {
+    padding: 10px;
+    font-size: 30px;
+}
+
+.body {
+    margin: 10px;
 }
