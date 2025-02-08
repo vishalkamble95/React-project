@@ -1,16 +1,20 @@
+import { CDN_URL } from "../utils/constants";
+
 const RestaurantCard = (props) => {
   const { resData } = props;
 
-  const { imageId, accessibility } = resData;
+  const { name, cloudinaryImageId, cuisines, avgRating } = resData.info;
 
   return (
     <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
       <img
         className="res-logo"
         alt="res-logo"
-        src="https://www.replicasurfaces.com/cdn/shop/articles/Replica_Surfaces_backdrops_food_jewelry_photo_photography_-_1_1269x.jpg?v=1572994950"
+        src={CDN_URL + cloudinaryImageId}
       />
-      <h3>{accessibility.altText}</h3>
+      <h3>{name}</h3>
+      <h4>{cuisines.join(", ")}</h4>
+      <h4>{avgRating} stars</h4>
     </div>
   );
 };
