@@ -59,6 +59,14 @@
     margin: 25px;
 }
 
-.filter {
-    display: flex;
+.filter-btn {
+    margin-left: 10px;
+}
+
+.filter > input {
+    margin-right: 5px;
+}
+
+button {
+    cursor: pointer;
 }
