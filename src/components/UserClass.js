@@ -8,7 +8,7 @@ class UserClass extends React.Component {
       userInfo: {
         name: "Dummy Name",
         location: "Default Location",
-      }
+      },
     };
   }
 
@@ -33,11 +33,19 @@ class UserClass extends React.Component {
     const { name, location, avatar_url } = this.state.userInfo;
 
     return (
-      <div className="user-card">
-        <img alt="avatar_url" src={avatar_url} width={200} />
-        <h2>Name: {name || "Vishal Kamble"}</h2>
-        <h3>Location: {location || "India"}</h3>
-        <h4>Contact: vishal@test.com</h4>
+      <div className="user-card p-6 bg-white shadow-lg rounded-xl text-center w-[300px]">
+        <img
+          className="w-32 h-32 rounded-full mx-auto border-4 border-orange-300 shadow-md"
+          alt="avatar_url"
+          src={avatar_url}
+        />
+        <h2 className="text-xl font-semibold text-gray-800 mt-4">
+          Name: {name || "Vishal Kamble"}
+        </h2>
+        <h3 className="text-gray-600">Location: {location || "India"}</h3>
+        <h4 className="text-gray-500 font-medium mt-2">
+          Contact: vishal@test.com
+        </h4>
       </div>
     );
   }

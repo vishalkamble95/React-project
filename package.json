@@ -28,8 +28,13 @@
     "react-router-dom": "^6.29.0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.6",
+    "autoprefixer": "^10.4.20",
+    "npx": "^10.2.2",
     "parcel": "^2.13.3",
-    "process": "^0.11.10"
+    "postcss": "^8.5.2",
+    "process": "^0.11.10",
+    "tailwindcss": "^4.0.6"
   },
   "browserslist": [
     "last 2 versions"

@@ -12,40 +12,45 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="header">
-      <h1>FoodieExpress</h1>
+    <div className="flex justify-between items-center bg-orange-50 shadow-md p-4 m-2 rounded-lg">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+        <img className="w-20 h-20 object-contain ml-14" src={LOGO_URL} alt="Logo" />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>
+      <div className="flex items-center">
+        <ul className="flex gap-4 text-gray-800 font-medium">
+          <li className="flex items-center px-4">
             Online Status:{" "}
-            {onlineStatus ? <HiStatusOnline /> : <HiStatusOffline />}
+            {onlineStatus ? (
+              <HiStatusOnline className="text-green-600 ml-1" />
+            ) : (
+              <HiStatusOffline className="text-red-500 ml-1" />
+            )}
           </li>
-          <li>
+          <li className="px-4 hover:text-red-500 transition-all">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="px-4 hover:text-red-500 transition-all">
             <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className="px-4 hover:text-red-500 transition-all">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>
+          <li className="px-4 hover:text-red-500 transition-all">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>Cart</li>
-          <button
-            className="login"
-            onClick={() => {
-              btnNameReact === "Login"
-                ? setBtnNameReact("Logout")
-                : setBtnNameReact("Login");
-            }}
-          >
-            {btnNameReact}
-          </button>
+          <li className="px-4 hover:text-red-500 transition-all">Cart</li>
+          <li className="px-4">
+            <button
+              className="px-4 py-1 bg-yellow-300 text-gray-800 rounded-lg shadow-sm hover:bg-yellow-400 transition-all cursor-pointer"
+              onClick={() => {
+                btnNameReact === "Login"
+                  ? setBtnNameReact("Logout")
+                  : setBtnNameReact("Login");
+              }}
+            >
+              {btnNameReact}
+            </button>
+          </li>
         </ul>
       </div>
     </div>

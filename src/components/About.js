@@ -6,14 +6,13 @@ class About extends Component {
     super(props);
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   render() {
     return (
-      <div className="about">
-        <h1>About Us</h1>
-        <UserClass name="First" location="Shrirampur" />
+      <div className="about bg-orange-50 min-h-screen flex flex-col items-center py-10">
+        <h1 className="text-3xl font-bold text-orange-700 mb-6">About Us</h1>
+        <UserClass name="Vishal Kamble" location="Shrirampur" />
       </div>
     );
   }

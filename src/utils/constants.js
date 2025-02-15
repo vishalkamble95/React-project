@@ -1,5 +1,5 @@
 export const LOGO_URL =
-  "https://www.foodiesfeed.com/wp-content/uploads/2023/04/apple-water-splash.jpg";
+  "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1474145615/mfyi5brpgoq8va4qgvql.jpg";
 
 export const CDN_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
