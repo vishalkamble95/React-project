@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -30,6 +30,8 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
+
   if (!onlineStatus) {
     return <h1>You are offline!! Please check your internet connection;</h1>;
   }
@@ -40,7 +42,6 @@ const Body = () => {
 
   return (
     <div className="bg-orange-100 min-h-screen p-6">
-      {/* Search Bar & Filters */}
       <div className="flex flex-wrap justify-center gap-4">
         <input
           type="text"
@@ -75,14 +76,17 @@ const Body = () => {
         </button>
       </div>
 
-      {/* Restaurant Cards */}
       <div className="flex flex-wrap justify-center gap-6 mt-6">
         {filteredRestaurant?.map((restaurant) => (
           <Link
             key={restaurant.info.id}
             to={"/restaurant/" + restaurant.info.id}
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.info.veg ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>

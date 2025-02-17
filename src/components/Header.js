@@ -1,3 +1,5 @@
+import { FaCartPlus } from "react-icons/fa";
+
 import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -14,7 +16,11 @@ const Header = () => {
   return (
     <div className="flex justify-between items-center bg-orange-50 shadow-md p-4 m-2 rounded-lg">
       <div className="logo-container">
-        <img className="w-20 h-20 object-contain ml-14" src={LOGO_URL} alt="Logo" />
+        <img
+          className="w-20 h-20 object-contain ml-14"
+          src={LOGO_URL}
+          alt="Logo"
+        />
       </div>
       <div className="flex items-center">
         <ul className="flex gap-4 text-gray-800 font-medium">
@@ -38,7 +44,10 @@ const Header = () => {
           <li className="px-4 hover:text-red-500 transition-all">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-4 hover:text-red-500 transition-all">Cart</li>
+          <li className="px-4 hover:text-red-500 transition-all">
+            <FaCartPlus />
+            Cart
+          </li>
           <li className="px-4">
             <button
               className="px-4 py-1 bg-yellow-300 text-gray-800 rounded-lg shadow-sm hover:bg-yellow-400 transition-all cursor-pointer"
