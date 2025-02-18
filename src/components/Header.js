@@ -1,9 +1,10 @@
 import { FaCartPlus } from "react-icons/fa";
 
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 import { HiStatusOnline } from "react-icons/hi";
 import { HiStatusOffline } from "react-icons/hi";
@@ -12,6 +13,8 @@ const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
 
   const onlineStatus = useOnlineStatus();
+
+  const { user } = useContext(UserContext);
 
   return (
     <div className="flex justify-between items-center bg-orange-50 shadow-md p-4 m-2 rounded-lg">
@@ -59,6 +62,9 @@ const Header = () => {
             >
               {btnNameReact}
             </button>
+          </li>
+          <li className="px-4 hover:text-red-500 transition-all">
+            {user}
           </li>
         </ul>
       </div>

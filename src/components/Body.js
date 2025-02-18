@@ -1,14 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
   const [searchText, setSearchText] = useState("");
+
+  const { user, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -42,38 +45,54 @@ const Body = () => {
 
   return (
     <div className="bg-orange-100 min-h-screen p-6">
-      <div className="flex flex-wrap justify-center gap-4">
-        <input
-          type="text"
-          className="p-2 w-64 border-2 border-orange-300 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-orange-400"
-          placeholder="Search for restaurants..."
-          value={searchText}
-          onChange={(e) => {
-            setSearchText(e.target.value);
-          }}
-        />
-        <button
-          className="px-4 py-2 bg-yellow-300 rounded-2xl cursor-pointer hover:bg-yellow-400 transition-all"
-          onClick={() => {
-            const filteredRes = restaurantList.filter((res) =>
-              res.info.name.toLowerCase().includes(searchText.toLowerCase())
-            );
-            setFilteredRestaurant(filteredRes);
-          }}
-        >
-          Search
-        </button>
-        <button
-          className="px-4 py-2 bg-orange-300 rounded-2xl cursor-pointer hover:bg-orange-400 transition-all"
-          onClick={() => {
-            const filteredList = restaurantList.filter(
-              (res) => res.info.avgRating > 4
-            );
-            setFilteredRestaurant(filteredList);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+      <div className="flex flex-wrap justify-between gap-4 mx-10">
+        <div className="flex items-center gap-2">
+          <input
+            type="text"
+            className="p-2 w-64 border-2 border-orange-300 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-orange-400"
+            placeholder="Search for restaurants..."
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            className="px-4 py-2 bg-yellow-300 rounded-2xl cursor-pointer hover:bg-yellow-400 transition-all"
+            onClick={() => {
+              const filteredRes = restaurantList.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredRestaurant(filteredRes);
+            }}
+          >
+            Search
+          </button>
+          <button
+            className="px-4 py-2 bg-orange-300 rounded-2xl cursor-pointer hover:bg-orange-400 transition-all"
+            onClick={() => {
+              const filteredList = restaurantList.filter(
+                (res) => res.info.avgRating > 4
+              );
+              setFilteredRestaurant(filteredList);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <label htmlFor="user" className="text-gray-800 font-medium">
+            User:
+          </label>
+          <input
+            type="text"
+            className="p-2 w-64 border-2 border-orange-300 rounded-2xl bg-white focus:outline-none focus:ring-2 focus:ring-orange-400"
+            value={user}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
+        </div>
       </div>
 
       <div className="flex flex-wrap justify-center gap-6 mt-6">
