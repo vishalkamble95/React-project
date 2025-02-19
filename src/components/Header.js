@@ -1,13 +1,14 @@
 import { FaCartPlus } from "react-icons/fa";
+import { HiStatusOnline } from "react-icons/hi";
+import { HiStatusOffline } from "react-icons/hi";
 
-import { LOGO_URL } from "../utils/constants";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { LOGO_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 
-import { HiStatusOnline } from "react-icons/hi";
-import { HiStatusOffline } from "react-icons/hi";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
@@ -15,6 +16,9 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   const { user } = useContext(UserContext);
+
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
 
   return (
     <div className="flex justify-between items-center bg-orange-50 shadow-md p-4 m-2 rounded-lg">
@@ -26,7 +30,7 @@ const Header = () => {
         />
       </div>
       <div className="flex items-center">
-        <ul className="flex gap-4 text-gray-800 font-medium">
+        <ul className="flex gap-1 text-gray-800 font-medium">
           <li className="flex items-center px-4">
             Online Status:{" "}
             {onlineStatus ? (
@@ -48,8 +52,11 @@ const Header = () => {
             <Link to="/grocery">Grocery</Link>
           </li>
           <li className="px-4 hover:text-red-500 transition-all">
-            <FaCartPlus />
-            Cart
+            <Link to="/cart">
+              <div className="flex items-center">
+                <FaCartPlus className="mr-2" />({cartItems.length} items)
+              </div>
+            </Link>
           </li>
           <li className="px-4">
             <button
@@ -63,9 +70,7 @@ const Header = () => {
               {btnNameReact}
             </button>
           </li>
-          <li className="px-4 hover:text-red-500 transition-all">
-            {user}
-          </li>
+          <li className="px-4 hover:text-red-500 transition-all">{user}</li>
         </ul>
       </div>
     </div>
