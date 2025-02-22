@@ -44,7 +44,7 @@ const Body = () => {
   }
 
   return (
-    <div className="bg-orange-100 min-h-screen p-6">
+    <div className="bg-orange-200 min-h-screen p-6">
       <div className="flex flex-wrap justify-between gap-4 mx-10">
         <div className="flex items-center gap-2">
           <input
