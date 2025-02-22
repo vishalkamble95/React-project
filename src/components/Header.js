@@ -54,7 +54,7 @@ const Header = () => {
           <li className="px-4 hover:text-red-500 transition-all">
             <Link to="/cart">
               <div className="flex items-center">
-                <FaCartPlus className="mr-2" />({cartItems.length} items)
+                <FaCartPlus className="mr-2" /> Cart - ({cartItems.length} items)
               </div>
             </Link>
           </li>
