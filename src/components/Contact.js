@@ -14,8 +14,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-orange-100 p-6">
-      <div className="bg-orange-50 shadow-lg rounded-lg p-8 max-w-lg w-full">
+    <div className="flex justify-center items-center min-h-screen bg-orange-50 p-6">
+      <div className="bg-gray-50 shadow-lg rounded-lg p-8 max-w-lg w-full">
         <h1 className="text-3xl font-bold text-center mb-6">Contact Us</h1>
         <p className="text-center text-gray-600 mb-4">
           Have any questions? Feel free to reach out to us!
